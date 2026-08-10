@@ -45,7 +45,7 @@ posts = [
 
 
 def index(request):
-    context = {"posts": posts}
+    context = {"post": posts}
     return render(request, "blog/index.html", context)
 
 
@@ -58,7 +58,7 @@ def post_detail(request, pk):
         raise Http404("Пост не найден")
     post = filtered_id[0]
     context = {
-        "post": {"post": post}
+        "post": post
     }
     return render(request, "blog/detail.html", context)
 
@@ -69,7 +69,6 @@ def category_posts(request, category_slug):
         if post["category"] == category_slug
     ]
     context = {
-        "posts": filtered_posts,
         "category_name": category_slug,
     }
     return render(request, "blog/category.html", context)

@@ -19,13 +19,13 @@
             Дата: {{ post.date }}
           </li>
           <li>
-            Категория: <a href="{% url 'blog:category_posts' category_slug=post.category.slug %}">{{ post.category }}</a>
+            Категория: <a href="{% url 'blog:category_posts' category_slug=post.category %}">{{ post.category }}</a>
           </li>
         </ul>
         <p>
           {{ post.text }}
         </p>
-    </article>
+      </article>
   </div>
 </main>
 {% endblock %}
