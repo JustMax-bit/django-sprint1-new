@@ -46,13 +46,13 @@ posts = [
 
 def index(request):
     context = {"posts": posts}
-    return render(request, "index.html", context)
+    return render(request, "blog/index.html", context)
 
 
 def post_detail(request, num):
     filtered_id = [post for post in posts if post["id"] == num]
     context = {"posts": filtered_id}
-    return render(request, "detail.html", context)
+    return render(request, "blog/detail.html", context)
 
 
 def category_posts(request, category_slug):
@@ -64,4 +64,4 @@ def category_posts(request, category_slug):
         "posts": filtered_posts,
         "category_name": category_slug,
     }
-    return render(request, "category.html", context)
+    return render(request, "blog/category.html", context)
