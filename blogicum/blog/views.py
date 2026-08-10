@@ -70,6 +70,6 @@ def category_posts(request, category_slug):
             category_posts_list.append(post)
     context = {
         "category_name": category_slug,
-        "post":category_posts_list,
+        "post": category_posts_list,
     }
     return render(request, "blog/category.html", context)
