@@ -153,4 +153,4 @@ media/
 # Testing
 build_tests/
 yap_testing
-html/img/img/
+blogicum/templates/static/img/img/

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Публикации в категории {{ post.category }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<main>
+  <div class="container py-5">
+    {% for post in posts %}
+      <article>
+        <ul>
+          <li>
+            Место: {{ post.location }}
+          </li>
+          <li>
+            Дата: {{ post.date }}
+          </li>
+          <li>
+            Категория: <a href="{% url 'blog:category_posts' category_slug=post.category %}">{{ post.category }}</a>
+          </li>
+        </ul>
+        <p>
+          {{ post.text }}
+        </p>
+    </article>
+   {% endfor %}
+  </div>
+</main>
+{% endblock %}
