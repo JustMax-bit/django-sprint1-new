@@ -64,11 +64,12 @@ def post_detail(request, pk):
 
 
 def category_posts(request, category_slug):
-    filtered_posts = [
-        post for post in posts
-        if post["category"] == category_slug
-    ]
+    category_posts_list = []
+    for post in posts:
+        if post["category"] == category_slug:
+            category_posts_list.append(post)
     context = {
         "category_name": category_slug,
+        "post":category_posts_list,
     }
     return render(request, "blog/category.html", context)
