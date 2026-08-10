@@ -56,7 +56,10 @@ def post_detail(request, num):
 
 
 def category_posts(request, category_slug):
-    filtered_posts = [post for post in posts if post["category"] == category_slug]
+    filtered_posts = [
+        post for post in posts
+        if post["category"] == category_slug
+    ]
     context = {
         "posts": filtered_posts,
         "category_name": category_slug,
