@@ -50,13 +50,12 @@ def index(request):
 
 
 def post_detail(request, pk):
-    filtered_id = [
-        post for post in posts
-        if post["id"] == pk
-    ]
+    filtered_id = {
+        "id": next((post for post in posts if post["id"] == pk), None)
+    }
     if not filtered_id:
         raise Http404("Пост не найден")
-    post = filtered_id[0]
+    post = filtered_id
     context = {
         "post": post
     }
