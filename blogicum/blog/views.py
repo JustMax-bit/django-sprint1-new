@@ -49,9 +49,11 @@ def index(request):
     return render(request, "blog/index.html", context)
 
 
-def post_detail(request, num):
-    filtered_id = [post for post in posts if post["id"] == num]
-    context = {"posts": filtered_id}
+def post_detail(request, id):
+    filtered_location_id = [post for post in posts if post["id"] == id]
+    context = {
+        "posts": filtered_location_id,
+    }
     return render(request, "blog/detail.html", context)
 
 
