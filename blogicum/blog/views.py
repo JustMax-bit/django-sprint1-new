@@ -50,7 +50,7 @@ def index(request):
 
 
 def post_detail(request, pk):
-    filtered_location_id = [post for post in posts if post["pk"] == pk]
+    filtered_location_id = [post for post in posts if post["id"] == pk]
     context = {
         "posts": filtered_location_id,
     }
