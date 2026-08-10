@@ -50,15 +50,15 @@ def index(request):
 
 
 def post_detail(request, pk):
-    filtered_id = [
+    filtered_id = {
         post for post in posts
         if post["id"] == pk
-    ]
+    }
     if not filtered_id:
         raise Http404("Пост не найден")
     post = filtered_id[0]
     context = {
-        "post": post,
+        "post": {"post": post}
     }
     return render(request, "blog/detail.html", context)
 
