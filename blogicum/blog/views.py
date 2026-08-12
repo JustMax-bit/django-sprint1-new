@@ -67,6 +67,7 @@ def category_posts(request, category_slug):
         post for post in posts if post['category'] == category_slug
     ]
     context = {
+        "category_name": category_slug,
         "posts": filtered_posts,
     }
     return render(request, "blog/category.html", context)
