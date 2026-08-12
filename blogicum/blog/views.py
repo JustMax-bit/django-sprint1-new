@@ -1,6 +1,6 @@
 from django.shortcuts import render, Http404
 
-EXPECTED_POSTS = [
+posts = [
     {
         'id': 0,
         'location': 'Остров отчаянья',
@@ -45,13 +45,13 @@ EXPECTED_POSTS = [
 
 
 def index(request):
-    context = {"posts": EXPECTED_POSTS}
+    context = {"posts": posts}
     return render(request, "blog/index.html", context)
 
 
 def post_detail(request, pk):
     filtered_id = [
-        post for post in EXPECTED_POSTS if post["id"] == pk
+        post for post in posts if post["id"] == pk
     ]
     if not filtered_id:
         raise Http404("Пост не найден")
@@ -64,7 +64,7 @@ def post_detail(request, pk):
 
 def category_posts(request, category_slug):
     filtered_posts = [
-        post for post in EXPECTED_POSTS if post['category'] == category_slug
+        post for post in posts if post['category'] == category_slug
     ]
     context = {
         "category_name": category_slug,
