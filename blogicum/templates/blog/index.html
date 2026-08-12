@@ -13,24 +13,24 @@
   <div class="container py-5">
     <h1>Лента записей</h1>
       <hr>
-      {% if post %}
-        {% for posts in post|slice:"::-1" %}
+      {% if posts %}
+        {% for post in posts|slice:"::-1" %}
         <article>
           <ul>
             <li>
-              Место: {{ posts.location }}
+              Место: {{ post.location }}
             </li>
             <li>
-              Дата: {{ posts.date }}
+              Дата: {{ post.date }}
             </li>
             <li>
-              Категория: <a href="{% url 'blog:category_posts' category_slug=posts.category %}">{{ posts.category }}</a>
+              Категория: <a href="{% url 'blog:category_posts' category_slug=post.category %}">{{ post.category }}</a>
             </li>
           </ul>
           <p>
-            {{ posts.text|truncatewords:10 }} ...
+            {{ post.text|truncatewords:10 }} ...
           </p>
-          <a href="{% url 'blog:post_detail' pk=posts.id %}">Читать полный текст</a>
+          <a href="{% url 'blog:post_detail' pk=post.id %}">Читать полный текст</a>
         </article>
         <hr>
         {% endfor %}
