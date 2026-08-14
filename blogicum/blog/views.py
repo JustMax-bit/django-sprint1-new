@@ -60,7 +60,7 @@ def post_detail(request, pk):
         raise Http404("Пост не найден")
     post = filtered_id[0]
     context = {
-        "posts": post,
+        "post": post,
     }
     template = "blog/detail.html"
     return render(request, template, context)
