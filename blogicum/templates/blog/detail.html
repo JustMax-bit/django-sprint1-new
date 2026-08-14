@@ -13,17 +13,17 @@
       <article>
         <ul>
           <li>
-            Место: {{ posts.location }}
+            Место: {{ post.location }}
           </li>
           <li>
-            Дата: {{ posts.date }}
+            Дата: {{ post.date }}
           </li>
           <li>
-            Категория: <a href="{% url 'blog:category_posts' category_slug=posts.category %}">{{ posts.category }}</a>
+            Категория: <a href="{% url 'blog:category_posts' category_slug=post.category %}">{{ post.category }}</a>
           </li>
         </ul>
         <p>
-          {{ posts.text }}
+          {{ post.text }}
         </p>
       </article>
   </div>
